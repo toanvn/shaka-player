@@ -26,10 +26,10 @@
  * the element is inherently accessible. */
 
 /* These control the color and size of the various pieces. */
-@thumb-color: white;
-@track-default-color: white;
-@thumb-size: 12px;
-@track-height: 4px;
+@thumb-color: orange;
+@track-default-color: orange;
+@thumb-size: 10px;
+@track-height: 2px;
 
 /* The range container is the div that contains a range element.
  * This div will act as a virtual track to allow us to style the track space.
@@ -116,16 +116,26 @@
   }
 
   &::-webkit-slider-thumb {
-    .thumb();
+    -webkit-appearance: none;
+  }
+
+  &::-moz-range-thumb {
+    -webkit-appearance: none;
+  }
+
+  &:hover {
+    &::-webkit-slider-thumb {
+      .thumb();
+    }
+
+    &::-moz-range-thumb {
+      .thumb();
+    }
   }
 
   /* Pseudo-elements for Gecko-based browsers. */
   &::-moz-range-track {
     .track();
-  }
-
-  &::-moz-range-thumb {
-    .thumb();
   }
 
   /* Pseudo-elements for IE 11. */
@@ -165,6 +175,7 @@
 }
 
 .shaka-seek-bar-container {
+  top: -45px;
   .show-when-controls-shown();
 }
 

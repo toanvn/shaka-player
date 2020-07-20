@@ -309,7 +309,6 @@ shaka.ui.SeekBar = class extends shaka.ui.RangeElement {
     return color + ' ' + (fract * 100) + '%';
   }
 
-
   /**
    * @private
    */
