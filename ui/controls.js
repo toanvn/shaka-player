@@ -819,6 +819,7 @@ shaka.ui.Controls = class extends shaka.util.FakeEventTarget {
     /** @private {!HTMLElement} */
     this.bottomControls_ = shaka.util.Dom.createHTMLElement('div');
     this.bottomControls_.classList.add('shaka-bottom-controls');
+    this.bottomControls_.classList.add('shaka-hiden');
     this.bottomControls_.classList.add('shaka-no-propagation');
     this.controlsContainer_.appendChild(this.bottomControls_);
 
@@ -829,7 +830,6 @@ shaka.ui.Controls = class extends shaka.util.FakeEventTarget {
     this.eventManager_.listen(this.bottomControls_, 'click', () => {
       this.hideSettingsMenus();
     });
-
     this.addAdControls_();
 
     /** @private {!HTMLElement} */
