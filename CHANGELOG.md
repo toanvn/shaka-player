@@ -1,3 +1,104 @@
+## 3.0.3 (2020-08-12)
+
+Bugfixes:
+  - Fix timing of VTT in HLS without map header
+    - https://github.com/google/shaka-player/issues/2714
+  - Fix TTML style inheritance
+  - Fix ordering of cues on IE and Edge
+  - Fix VTTCue polyfill in uncompiled mode on Edge
+  - Ensure the number of variants stays stable when new periods are added
+    - https://github.com/google/shaka-player/issues/2716
+    - https://github.com/google/shaka-player/issues/2736
+  - Fix src= playback on WebOS
+    - https://github.com/google/shaka-player/pull/2777
+  - Filter timeline regions by seek range
+    - https://github.com/google/shaka-player/issues/2716
+  - Don't send duplicate license requests
+    - https://github.com/google/shaka-player/issues/2754
+  - Don't limit segment count for VOD
+    - https://github.com/google/shaka-player/issues/2677
+    - https://github.com/google/shaka-player/issues/2709
+    - https://github.com/google/shaka-player/issues/2745
+  - Fix data URI parsing when charset present
+  - Fix rendering of TTML nested cues and spacers
+    - https://github.com/google/shaka-player/issues/2760
+
+Ad changes (BETA):
+  - Add an extra log when replacing ad tag params for tracking adoption
+  - Properly set tracking info for SS IMA streams
+
+Demo App:
+  - License header field for custom assets
+    - https://github.com/google/shaka-player/issues/2758
+
+Docs:
+  - Correct very outdated docs on test.py
+
+
+## 2.5.15 (2020-08-12)
+
+Bugfixes:
+  - Fix TTML style inheritance
+  - Fix ordering of cues on IE and Edge
+  - Fix src= playback on WebOS
+    - https://github.com/google/shaka-player/pull/2777
+  - Filter timeline regions by seek range
+    - https://github.com/google/shaka-player/issues/2716
+  - Don't send duplicate license requests
+    - https://github.com/google/shaka-player/issues/2754
+  - Fix data URI parsing when charset present
+  - Fix rendering of TTML nested cues and spacers
+    - https://github.com/google/shaka-player/issues/2760
+
+Docs:
+  - Correct very outdated docs on test.py
+
+
+## 3.0.2 (2020-07-28)
+
+Bugfixes:
+  - Fix missing build/types/core in npm packages
+    - https://github.com/google/shaka-player/issues/2752
+  - Work around stalling playback on Tizen 3
+    - https://github.com/google/shaka-player/issues/2620
+  - Fix hang while shutting down Widevine DRM sessions
+    - https://github.com/google/shaka-player/issues/2741
+  - Fix initial bandwidth estimate on Tizen
+  - Fix src= playback on Tizen 3
+  - Work around less 3.12.0 bug
+  - Improve logging of buffered ranges on WebOS
+  - Fix use of --test-custom-license-server in test.py
+  - Fix HLS discontinuity bug, broken playback with ads
+    - https://github.com/google/shaka-player/issues/2687
+  - Fix disappearing captions with certain input patterns
+    - https://github.com/google/shaka-player/issues/2671
+    - https://github.com/google/shaka-player/pull/2674
+  - Fix missing captions when switching streams
+    - https://github.com/google/shaka-player/issues/2648
+    - https://github.com/google/shaka-player/pull/2672
+  - Append license for language-mapping-list to output
+
+Ad changes (BETA):
+  - Proxy all client-side IMA events through the ad manager
+  - Fire a shaka.Player.Metadata event on detecting ID3 metadata
+    - https://github.com/google/shaka-player/issues/2592
+
+Docs:
+  - Update tutorial for seek bar color changes
+    - https://github.com/google/shaka-player/issues/2708
+  - Add FAQ entry for native HLS playback in Safari
+  - Update tutorials and docs to async/await syntax
+    - https://github.com/google/shaka-player/issues/2544
+    - https://github.com/google/shaka-player/pull/2693
+  - Update tutorials and docs to use modern variable syntax (const/let)
+    - https://github.com/google/shaka-player/issues/2544
+    - https://github.com/google/shaka-player/pull/2692
+
+Demo App:
+  - Fix demo behavior when UI fails to load (due to ad blocker)
+    - https://github.com/google/shaka-player/issues/2669
+
+
 ## 3.0.1 (2020-06-18)
 
 Bugfixes:

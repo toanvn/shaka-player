@@ -98,7 +98,7 @@ shaka.extern.CueRegion = class {
      * @type {shaka.text.CueRegion.scrollMode}
      * @exportDoc
      */
-    shaka.extern.CueRegion.prototype.scroll;
+    this.scroll;
   }
 };
 
@@ -126,14 +126,16 @@ shaka.extern.Cue = class {
     this.endTime;
 
     /**
-     * The text payload of the cue.
+     * The text payload of the cue.  If nestedCues is non-empty, this should be
+     * empty.  Top-level block containers should have no payload of their own.
      * @type {!string}
      * @exportDoc
      */
     this.payload;
 
     /**
-     * The region to render the cue into.
+     * The region to render the cue into.  Only supported on top-level cues,
+     * because nested cues are inline elements.
      * @type {shaka.extern.CueRegion}
      * @exportDoc
      */
@@ -231,25 +233,22 @@ shaka.extern.Cue = class {
     this.displayAlign;
 
     /**
-     * Text color represented by any string that would be accepted in CSS.
-     * E. g. '#FFFFFF' or 'white'.
+     * Text color as a CSS color, e.g. "#FFFFFF" or "white".
      * @type {!string}
      * @exportDoc
      */
     this.color;
 
     /**
-     * Text background color represented by any string that would be
-     * accepted in CSS.
-     * E. g. '#FFFFFF' or 'white'.
+     * Text background color as a CSS color, e.g. "#FFFFFF" or "white".
      * @type {!string}
      * @exportDoc
      */
     this.backgroundColor;
 
     /**
-     * The number of horizontal and vertical cells into which
-     * the Root Container Region area is divided
+     * The number of horizontal and vertical cells into which the Root Container
+     * Region area is divided.
      *
      * @type {{ columns: number, rows: number }}
      * @exportDoc
@@ -257,16 +256,14 @@ shaka.extern.Cue = class {
     this.cellResolution;
 
     /**
-     * Image background represented by any string that would be
-     * accepted in image HTML element.
-     * E. g. 'data:[mime type];base64,[data]'.
+     * The URL of the background image, e.g. "data:[mime type];base64,[data]".
      * @type {!string}
      * @exportDoc
      */
     this.backgroundImage;
 
     /**
-     * Text border.
+     * The border around this cue as a CSS border.
      * @type {!string}
      * @exportDoc
      */
@@ -301,21 +298,21 @@ shaka.extern.Cue = class {
     this.fontFamily;
 
     /**
-     * Text letter spacing.
+     * Text letter spacing as a CSS letter-spacing value.
      * @type {!string}
      * @exportDoc
      */
     this.letterSpacing;
 
     /**
-     * Text line padding.
+     * Text line padding as a CSS line-padding value.
      * @type {!string}
      * @exportDoc
      */
     this.linePadding;
 
     /**
-     * Text opacity.
+     * Opacity of the cue element, from 0-1.
      * @type {!number}
      * @exportDoc
      */
@@ -344,18 +341,22 @@ shaka.extern.Cue = class {
     this.id;
 
     /**
-     * Nested cues
-     * @type {Array.<!shaka.extern.Cue>}
+     * Nested cues, which should be laid out horizontally in one block.
+     * Top-level cues are blocks, and nested cues are inline elements.
+     * Cues can be nested arbitrarily deeply.
+     * @type {!Array.<!shaka.extern.Cue>}
      * @exportDoc
      */
     this.nestedCues;
 
     /**
-     * Whether or not the cue only acts as a spacer between two cues
+     * Whether or not the cue only acts as a line break between two nested cues.
+     * Should only appear in nested cues.
      * @type {boolean}
      * @exportDoc
      */
     this.spacer;
+    // TODO: Rename "spacer" to "lineBreak".
   }
 };
 
